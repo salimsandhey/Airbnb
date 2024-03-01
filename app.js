@@ -18,6 +18,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+let atlasUrl=process.env.ATLASDB_URL;
 
 const store = MongoStore.create({
     mongoUrl: atlasUrl,
@@ -46,7 +47,6 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
-let atlasUrl=process.env.ATLASDB_URL;
 async function main(){
     await mongoose.connect(atlasUrl);
 }
