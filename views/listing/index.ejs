@@ -1,0 +1,125 @@
+<%layout("/layouts/boilerplate")%>
+<style>
+    #filters{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        
+    }
+    .filter{
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 1rem;
+        color: rgb(78, 78, 78);
+        border-bottom: 1px solid transparent;
+    }
+    .filter:hover{
+        color: black;
+        border-bottom: 1px solid gray;
+        cursor: pointer;
+    }
+    .filter i{
+        font-size: 19px;
+    }
+    .filter p{
+        font-size: 16px;
+    }
+    .taxInfo{
+        display: none;
+    }
+    .taxSwitch{
+        border: 1px solid rgba(0, 0, 0, 0.178);
+        height: 3rem;
+        width: 10rem;
+        border-radius: 1rem;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+    }
+</style>
+<body>
+    <div id="filters">
+        <div class="filter">
+            <i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-city"></i>
+            <p>Iconic city</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-cow"></i>
+            <p>Country side</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-wheat-awn"></i>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-mountain"></i>
+            <p>A-Frame</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-tree"></i>
+            <p>Tropical</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-snowflake"></i>
+            <p>Artic</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <p>Beach</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-water"></i>
+            <p>River</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-sailboat"></i>
+            <p>Boats</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-tower-observation"></i>
+            <p>Towers</p>
+        </div>
+        <div class="taxSwitch">
+            <div class="form-check form-switch form-check-reverse">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+                <label class="form-check-label" for="flexSwitchCheckReverse">Show Taxes</label>
+              </div>
+        </div>
+    </div>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+        <% for(list of allListings){%>
+            <a href="/listings/<%=list.id%>" class="card-link">
+                <div class="card col card-listing" style="width: 16rem;">
+                    <div class="card-img-overlay"></div>
+                    <img src="<%=list.image.url%>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><b><%=list.title%></b></p>
+                        <% if (list.price !== null && list.price !== undefined) { %>
+                            <p class="card-text">&#8377;<%= list.price.toLocaleString("en-IN") %> /night <i class="taxInfo">&nbsp;+18% Gst</i></p>
+                        <% } %>                        
+                    </div>
+                </div>
+            </a>
+        <%}%>
+    </div>
+</body>
+<script>
+    let taxSwitch=document.querySelector("#flexSwitchCheckReverse");
+    taxSwitch.addEventListener("click",()=>{
+        let taxInfo=document.querySelectorAll(".taxInfo");
+        for(info of taxInfo){
+            if(info.style.display!="inline"){
+                info.style.display="inline";
+            }else{
+                info.style.display="none";
+            };
+        }
+    });
+</script>

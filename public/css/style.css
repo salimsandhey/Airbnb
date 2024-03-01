@@ -1,0 +1,78 @@
+body{
+    margin: none !important;
+}
+.fa-compass{
+    color:#fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: black !important;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    align-items: center;
+    background-color:white;
+    margin-top: 5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.178);
+}
+.footer a{
+    margin-right: 2px;
+    text-decoration: none;
+    color: #222222;
+}
+.links{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.footer a i{
+    font-size: 18px;
+} 
+.card-listing{
+    margin:  10px;
+    border: none !important;
+}
+.card-img-top{
+    height: 250px;
+    border-radius: 1rem !important;
+}
+.card-link{
+    text-decoration: none;
+}
+.card-body p{
+    margin-top: -10px;
+}
+.btn-light{
+    background-color: #fe424d !important;
+    color: white !important;
+    width: 60px;
+}
+.btn-dark{
+    background-color: #6c757d;
+    color: white;
+    width: 70px;
+}
+.card-img-overlay{
+    background-color: white;
+    opacity: 0;
+    transition: 0.5s;
+}
+.card-img-overlay:hover{
+    opacity: 20%;
+}
+.show-img{
+    height: 40vh;
+}
+.btns{
+    display: flex;
+    margin-left: 10px;
+}
+#map{
+    width: 60vw;
+    height: 350px;
+}
